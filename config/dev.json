@@ -1,0 +1,11 @@
+{
+    "SERVER": {
+        "PORT": 3000
+    },
+    "MONGODB_URL": "mongodb://localhost:27017/ecommerce-web",
+    "SECURITY": {
+        "BCRYPT_SALT_ROUNDS": 10,
+        "JSONWEBTOKEN_SECRET": "TEST_SECRET_KEY",
+        "JSONWEBTOKEN_EXPIRY": 3600
+    }
+}
