@@ -1,4 +1,4 @@
-const { usersModel } = require('../models/userModel');
+const { usersModel } = require('../models/usersModel');
 const { verify } = require('../services/utils');
 
 function authorization(role) {

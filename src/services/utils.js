@@ -26,10 +26,30 @@ function verify(token) {
     return jwt.verify(token, secretKey);
 }
 
+function CustomError({ message = '', statusCode, data }) {
+    let err = new Error(message);
+    Object.setPrototypeOf(err, CustomError.prototype);
+    err.message = message;
+    err.statusCode = statusCode;
+    err.data = data;
+    console.log(err);
+    return err;
+}
+
+function serverError({ res, error }) {
+    console.log(error);
+
+    if (error && error.statusCode)
+        return res.status(error.statusCode).send(error.message);
+    return res.status(500).send('Internal server error')
+}
+
 
 module.exports = {
     generateWebToken,
     hash,
     checkPassword,
-    verify
+    verify,
+    CustomError,
+    serverError
 }
