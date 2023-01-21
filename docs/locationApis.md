@@ -1,7 +1,7 @@
 # locations API's
 
-- [] create location
-- [] get all locations
+- [X] create location
+- [X] get all locations
 
 # process
 

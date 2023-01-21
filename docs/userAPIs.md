@@ -1,9 +1,9 @@
 # users Apis
 
 - [x] sign up
-- [] login
-- [] forgot password
-- [] reset password
+- [X] login
+- [X] forgot password
+- [X] reset password
 - [] update profile
 
 # process

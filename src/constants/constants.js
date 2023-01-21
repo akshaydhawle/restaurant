@@ -5,7 +5,15 @@ const MESSAGES = {
     MAIL_SUCCESS: 'Mail Sent To Your Email , Please Check Your Inbox',
     PASSWORD_RESET_SUCCESS: 'Password reset successfully',
     USER_ALREADY_EXISTS: 'User Already Registered With Given Email Id',
-    USER_NOT_FOUND: 'User Not Found'
+    USER_NOT_FOUND: 'User Not Found',
+
+    LOCATION_ALREADY_EXISTS: 'Location Already Exists.',
+    LOCATION_SUCCESS: 'Location Added Successfully.',
+    LOCATION_GET: 'Locations Fetched Successfully.',
+
+    CATEGORIES_ALREADY_EXISTS: 'Category Already Exists.',
+    CATEGORIES_SUCCESS: 'Category Added Successfully.',
+    CATEGORIES_GET: 'Categories Fetched Successfully.'
 }
 
 const HTTP_CODES = {

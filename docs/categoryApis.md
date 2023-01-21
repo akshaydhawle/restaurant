@@ -1,7 +1,7 @@
 # locations API's
 
-- [] create category
-- [] get all categories
+- [X] create category
+- [X] get all categories
 
 # process
 
