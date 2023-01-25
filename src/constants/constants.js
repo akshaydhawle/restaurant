@@ -13,7 +13,13 @@ const MESSAGES = {
 
     CATEGORIES_ALREADY_EXISTS: 'Category Already Exists.',
     CATEGORIES_SUCCESS: 'Category Added Successfully.',
-    CATEGORIES_GET: 'Categories Fetched Successfully.'
+    CATEGORIES_GET: 'Categories Fetched Successfully.',
+
+    RESTAURANT_ALREADY_EXISTS: 'Restaurant Already Exists.',
+    RESTAURANT_SUCCESS: 'Restaurant Created Successfully.',
+    RESTAURANT_NOT_FOUND: 'Restaurant Not Found.',
+    RESTAURANT_UPDATED: 'Restaurant Updated Successfully',
+
 }
 
 const HTTP_CODES = {

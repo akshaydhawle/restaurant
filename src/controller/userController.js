@@ -20,7 +20,7 @@ async function register(req, res) {
     try {
         let logger = `registerController:`
         const { email, password } = req.body;
-        
+
         // validate the user
         userValidation.validateRegister(req.body);
         console.log(`${logger} - user validated`);

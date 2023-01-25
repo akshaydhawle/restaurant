@@ -44,6 +44,17 @@ function serverError({ res, error }) {
     return res.status(500).send('Internal server error')
 }
 
+function formatResponseForPagination({ data, totalCount, page, size }) {
+    size = Number(size)
+    let totalPages = Math.ceil(totalCount / Number(size));
+    return {
+        totalItems: totalCount,
+        totalPages,
+        currentPage: page,
+        data,
+    }
+}
+
 
 module.exports = {
     generateWebToken,
@@ -51,5 +62,6 @@ module.exports = {
     checkPassword,
     verify,
     CustomError,
-    serverError
+    serverError,
+    formatResponseForPagination
 }

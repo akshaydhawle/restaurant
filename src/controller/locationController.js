@@ -1,4 +1,4 @@
-const UtilService = require('../services/utils');
+ const UtilService = require('../services/utils');
 const locationService = require('../services/locationService');
 const locationValidation = require('../validation/locationValidation');
 const { MESSAGES, HTTP_CODES } = require('../constants/constants');

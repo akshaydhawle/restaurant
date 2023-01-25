@@ -21,13 +21,14 @@
 - [] create restaurant
   **Role** : restaurant Owner
 
-  - fields are - name, openTime , closeTime, openDays, address, ownerId, image
+  - fields are - name, openTime , closeTime, openDays, address, ownerId, image, status, isActive, avgRating
   - validation: all fields are required.
   - check the existence of restaurant , should be unique.
   - upload the file to fs server, and get the url
   - save the data into database.
   - send response with email to restaurant owner, and admin.
   - status should be pending, and isActive should be false.
+  - **s3 need to added to file upload**
 
 - [] update restaurant
   **Role** : restaurant Owner

@@ -30,6 +30,17 @@ function notifyCustomer() {
 
 createInvoice();
 
+function hi() {
+    let logger = `hi: `;
+    console.log(` ${logger} hello`)
+}
+
+function checkout() {
+    let logger = `user function :checkout `
+
+    console.log(`${logger} is `);
+
+}
 
 
 // 
