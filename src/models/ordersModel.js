@@ -8,14 +8,16 @@ const ordersSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'users'
         },
-        restaurantId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'restaurants'
-        },
-        total: Number,
+        totalAmount: Number,
+        totalPayable: Number,
         tax: Number,
         quantity: Number,
-        status: String
+        status: String,
+        transactionId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'payments',
+        },
+        deliverAddress: Object
     },
     options
 );

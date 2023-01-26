@@ -44,16 +44,18 @@ async function getRestaurantsForUsers({
 
     // filter the restaurants based on time
     const currentTime = new Date().getHours();
-    filter.openTime = { $gte: currentTime };
+    filter.openTime = { $lte: currentTime };
+    filter.closeTime = { $gte: currentTime };
 
-    console.log(`${logger}: fetching restaurants ... : `);
+    console.log(`${logger}: fetching restaurants ... : `, JSON.stringify(filter));
     const restaurants = await restaurantsModel.find({ ...filter })
+        .populate({ path: "locationId", select: ['name'] })
+        .populate({ path: "ownerId", select: ['_id', 'type', 'email'] })
         .limit(size)
         .skip((page - 1) * 10)
         .sort({ [sortColumn]: sortDirection });
     const restaurantsCount = await restaurantsModel.countDocuments({ ...filter })
 
-    console.dir(restaurants, { depth: null, colors: true });
     console.log(`${logger}: restaurants count : ${restaurantsCount}`);
 
     const response = UtilService.formatResponseForPagination({

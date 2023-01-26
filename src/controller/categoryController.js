@@ -12,7 +12,7 @@ async function createCategory(req, res) {
     try {
         let logger = `categoryController: createCategory`
         const { name } = req.body;
-        
+
         // validate the user
         categoryValidation.validateCategory(req.body);
         console.log(`${logger} - category validated`);
@@ -35,7 +35,7 @@ async function createCategory(req, res) {
     }
 }
 
-async function getAllCategories(req,res) {
+async function getAllCategories(req, res) {
     try {
         let logger = `categoryController: getAllCategories`
 

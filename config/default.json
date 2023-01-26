@@ -2,5 +2,13 @@
     "SERVER": {
         "PORT": 3000
     },
-    " ": "mongodb://localhost:27017/ecommerce-web"
+    "MONGODB_URL": "mongodb://localhost:27017/ecommerce-web",
+    "SECURITY": {
+        "BCRYPT_SALT_ROUNDS": 10,
+        "JSONWEBTOKEN_SECRET": "TEST_SECRET_KEY",
+        "JSONWEBTOKEN_EXPIRY": 3600
+    },
+    "PAYMENT_GATEWAY": {
+        "STRIPE_SECRET_KEY": "sk_test_On1hTxIFxnm5tCe02FaacjTf"
+    }
 }

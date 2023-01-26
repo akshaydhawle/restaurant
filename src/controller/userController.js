@@ -63,7 +63,7 @@ async function login(req, res) {
         userValidation.validateLogin(req.body);
 
         // check if user valid or not
-        await userService.isUserValid({ email });
+        await userService.isUserValid({ key: 'email', value: email });
 
         // check password
         const isValidPassword = UtilService.checkPassword(password, user.password);
@@ -89,7 +89,7 @@ async function forgotPassword(req, res) {
         const { email } = req.query;
 
         // check if user valid or not
-        await userService.isUserValid({ email });
+        await userService.isUserValid({ key: 'email', value: email });
 
         let url = 'http://localhost:3000/users/reset-password'
         MailerService.sendEmail(email, url);
@@ -110,7 +110,7 @@ async function resetPassword(req, res) {
         userValidation.validateResetPassword(req.body);
 
         // check if user valid or not
-        let user = await userService.isUserValid({ email });
+        let user = await userService.isUserValid({ key: 'email', value: email });
 
         user.password = UtilService.hash(password);
 

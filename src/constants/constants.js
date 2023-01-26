@@ -19,6 +19,25 @@ const MESSAGES = {
     RESTAURANT_SUCCESS: 'Restaurant Created Successfully.',
     RESTAURANT_NOT_FOUND: 'Restaurant Not Found.',
     RESTAURANT_UPDATED: 'Restaurant Updated Successfully',
+    RESTAURANT_GET_ALL: 'Restaurants Fetched Successfully.',
+    RESTAURANT_GET: 'Restaurant Fetched Successfully.',
+    RESTAURANT_ACTIVATED: 'Restaurant Activated Successfully',
+
+    MENU_ALREADY_EXISTS: 'Menu Item Already Exists.',
+    MENU_SUCCESS: 'Menu Item Added Successfully.',
+    MENU_UPDATED: 'Menu Item Updated Successfully.',
+    MENU_GET: 'Menu Items Fetched Successfully.',
+    MENU_NOT_FOUND: 'Menu Item Not Found.',
+    MENU_GET: 'Menus Fetched Successfully.',
+    RESTAURANT_MENU_CATEGORIES_COUNT: 'Categories Fetched Successfully Countwise',
+
+    ALREADY_COMMENTED: 'User Already Commented With Same Message',
+    POST_COMMENT: 'Comment Added',
+
+    CART_SUCCESS: 'Items Added Successfully Into Cart.',
+    CART_GET: 'Carts Records Fetched Successfully.',
+
+    ORDER_SUCCESS: 'Order Placed Successfully.',
 
 }
 

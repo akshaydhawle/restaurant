@@ -10,10 +10,12 @@ const paymentsSchema = new mongoose.Schema(
         },
         mode: {
             type: String,
-            enum: ["NETBANKING", 'DEBIT', 'CREDIT']
+            enum: ['DEBIT'],
+            default: "DEBIT"
         },
         transactionAmount: Number,
-        status: { type: String, enum: ['SUCCESS', 'FAILED', 'IN-PROCESS'] },
+        transactionId: String,
+        status: { type: String, enum: ['SUCCESS', 'FAILED', 'IN-PROCESS'], default: "IN-PROCESS" },
     },
     options
 );

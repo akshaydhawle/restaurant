@@ -8,6 +8,10 @@ const reviewsSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'users'
         },
+        restaurantId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'restaurants'
+        },
         comment: String,
         rating: Number
     },

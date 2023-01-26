@@ -13,8 +13,8 @@ async function checkIfUserAlreadyExists({ email }) {
 }
 
 // find user
-async function isUserValid({ email }) {
-    const user = await usersModel.findOne({ email });
+async function isUserValid({ key, value }) {
+    const user = await usersModel.findOne({ [key]: value });
     if (!user) {
         throw CustomError({ message: MESSAGES.USER_NOT_FOUND, statusCode: HTTP_CODES.NOT_FOUND })
     }

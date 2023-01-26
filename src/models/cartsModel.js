@@ -15,7 +15,8 @@ const cartsSchema = new mongoose.Schema(
         menuId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'menus'
-        }
+        },
+        quantity: Number
     },
     options
 );

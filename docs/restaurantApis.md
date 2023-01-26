@@ -1,14 +1,14 @@
 # restaurant API's
 
 - [] **restaurant Owner**
-- [] create restaurant
-- [] update restaurant
+- [x] create restaurant
+- [x] update restaurant
 - [] delete restaurant
-- [] get all restaurants, search filters
-- [] get single restaurant by id.
+- [x] get all restaurants, search filters
+- [x] get single restaurant by id.
 
 - [] **Admin**
-- [] activate restaurant.
+- [x] activate restaurant.
 - [] get all restaurant with all information.
 - [] get single restaurant with all information.
 

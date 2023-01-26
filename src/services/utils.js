@@ -10,7 +10,7 @@ function generateWebToken(info) {
         data: info
     }, secretKey, { expiresIn: expiryTime });
 }
-``
+
 function hash(password) {
     const saltRounds = config.get('SECURITY.BCRYPT_SALT_ROUNDS');
     const salt = bcrypt.genSaltSync(saltRounds);
@@ -55,6 +55,15 @@ function formatResponseForPagination({ data, totalCount, page, size }) {
     }
 }
 
+function initializeValues(body) {
+    body.sortColumn = body.hasOwnProperty('sortColumn') ? body.sortColumn : '_id';
+    body.sortDirection = (body && body.sortDirection) ? body.sortDirection : 'DESC';
+    body.filter = (typeof body.filter === 'string') ? JSON.parse(body.filter) : {};
+    body.page = (body && body.page) ? Number(body.page) : 1;
+    body.size = (body && body.size) ? Number(body.size) : 10;
+    return body;
+}
+
 
 module.exports = {
     generateWebToken,
@@ -63,5 +72,6 @@ module.exports = {
     verify,
     CustomError,
     serverError,
-    formatResponseForPagination
+    formatResponseForPagination,
+    initializeValues
 }

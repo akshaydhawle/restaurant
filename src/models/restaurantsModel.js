@@ -10,6 +10,10 @@ const restaurantSchema = new mongoose.Schema(
         openDays: [String],
         avgRating: Number,
         address: String,
+        locationId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'locations'
+        },
         ownerId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'users'

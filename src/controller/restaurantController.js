@@ -6,7 +6,9 @@ const { HTTP_CODES, MESSAGES } = require('../constants/constants');
 const restaurantController = {
     createRestaurant,
     updateRestaurant,
-    getRestaurantsForUsers
+    getRestaurantsForUsers,
+    getRestaurantInformation,
+    activateRestaurant
 }
 
 async function createRestaurant(req, res) {
@@ -81,11 +83,64 @@ async function getRestaurantsForUsers(req, res) {
         const response = await restaurantService.getRestaurantsForUsers(body);
         console.log(`${logger} : sending response ...`, JSON.stringify(response));
 
-        return res.status(200).send(response);
+        // adding message to response
+        response.message = MESSAGES.RESTAURANT_GET_ALL;
+
+        return res.status(HTTP_CODES.OK).send(response);
     } catch (error) {
         return UtilService.serverError({ res, error })
     }
 }
+
+async function getRestaurantInformation(req, res) {
+    try {
+        let logger = `restaurantController: getRestaurantInformation`;
+        console.log(logger);
+
+        console.log(`${logger}: extracting data`);
+        const { _id } = req.params;
+
+        // validation
+        console.log(`${logger}: validating data`);
+        if (!_id) return res.status(HTTP_CODES.BAD_REQUEST).send('_id is required');
+
+        console.log(`${logger} : checking restaurant ...`);
+        const restaurant = await restaurantService.isValidRestaurant({ id: _id });
+
+        return res.status(200).send({
+            data: restaurant,
+            message: MESSAGES.RESTAURANT_GET
+        });
+
+    } catch (error) {
+        return UtilService.serverError({ res, error })
+    }
+}
+
+async function activateRestaurant(req, res) {
+    try {
+        let logger = `restaurantController: activateRestaurant`;
+        console.log(logger);
+
+        console.log(`${logger}: extracting data`);
+        const { restaurantId } = req.params;
+        if (!restaurantId) return res.status(HTTP_CODES.BAD_REQUEST).send('restaurantId is required');
+
+        console.log(`${logger} : checking restaurant ...`);
+        await restaurantService.isValidRestaurant({ id: restaurantId });
+
+        console.log(`${logger} : restaurant exists, updating restaurant ...`);
+        const restaurant = await restaurantService.updateRestaurant(restaurantId, { isActive: true });
+
+        return res.status(200).send({
+            data: restaurant,
+            message: MESSAGES.RESTAURANT_ACTIVATED
+        });
+    } catch (error) {
+        return UtilService.serverError({ res, error })
+    }
+}
+
 
 module.exports = {
     restaurantController,

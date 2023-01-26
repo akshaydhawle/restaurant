@@ -2,15 +2,15 @@ const Joi = require("joi");
 const { HTTP_CODES } = require("../constants/constants");
 const UtilService = require("../services/utils");
 
-function validateCreateRestaurant(body) {
+function validateCreateMenuItem(body) {
     const schema = Joi.object({
         name: Joi.string().required(),
-        openTime: Joi.number().required(),
-        closeTime: Joi.number().required(),
-        openDays: Joi.array().items(),
-        address: Joi.string().required(),
-        ownerId: Joi.string().required(),
-        locationId: Joi.string().required()
+        description: Joi.string().optional(),
+        categoryId: Joi.string().required(),
+        restaurantId: Joi.string().required(),
+        price: Joi.number().positive().required(),
+        image: Joi.string().optional(),
+        quantityAllowed: Joi.number().min(1).max(30).required()
     })
 
     const { error } = schema.validate(body);
@@ -19,15 +19,15 @@ function validateCreateRestaurant(body) {
     }
 }
 
-function validateUpdateRestaurant(body) {
+function validateUpdateMenuItem(body) {
     const schema = Joi.object({
         id: Joi.string().required(),
         name: Joi.string().optional(),
-        openTime: Joi.number().optional(),
-        closeTime: Joi.number().optional(),
-        openDays: Joi.array().items(),
-        address: Joi.string().optional(),
-        ownerId: Joi.string().optional(),
+        description: Joi.string().optional(),
+        categoryId: Joi.string().optional(),
+        price: Joi.number().positive().optional(),
+        image: Joi.string().optional(),
+        quantityAllowed: Joi.number().min(1).max(30).optional()
     })
 
     const { error } = schema.validate(body);
@@ -36,17 +36,19 @@ function validateUpdateRestaurant(body) {
     }
 }
 
-
-function validateGetAllRestaurantForUsers(body) {
+function validateGetAllMenusOfRestaurant(body) {
     body = UtilService.initializeValues(body);
 
     const schema = Joi.object({
-        sortColumn: Joi.string().valid('name', '_id', 'openTime', 'closeTime').optional(),
+        sortColumn: Joi.string().valid('price', '_id').optional(),
         sortDirection: Joi.string().valid('ASC', 'DESC').optional(),
         page: Joi.number().positive().greater(0).optional(),
         size: Joi.number().positive().greater(0).optional(),
         filter: Joi.object({
+            restaurantId: Joi.string().required(),
             name: Joi.string().optional(),
+            categoryId: Joi.string().optional(),
+            price: Joi.number().optional(),
         }).optional(),
     })
 
@@ -60,7 +62,7 @@ function validateGetAllRestaurantForUsers(body) {
 
 
 module.exports = {
-    validateCreateRestaurant,
-    validateUpdateRestaurant,
-    validateGetAllRestaurantForUsers
+    validateCreateMenuItem,
+    validateUpdateMenuItem,
+    validateGetAllMenusOfRestaurant
 }

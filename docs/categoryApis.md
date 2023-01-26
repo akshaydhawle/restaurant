@@ -1,14 +1,15 @@
 # locations API's
 
-- [X] create category
-- [X] get all categories
+- [x] create category
+- [x] get all categories
 
 # process
 
 - [] create category
-    **Role** : admin/ restaurant owner
-    - name is required
-    - should be unique in database.
+  **Role** : admin/ restaurant owner
+
+  - name is required
+  - should be unique in database.
 
 - [] get all categories
-    - should return names of the categories
+  - should return names of the categories
