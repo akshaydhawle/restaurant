@@ -1060,7 +1060,7 @@ let numbers = wrapInArray('1');// we can't pass string
 
 ```ts
 class ArrayUtils {
-wrapInArray<T>(value: T){
+    wrapInArray<T>(value: T){
         return [value];
     } 
 }
@@ -1078,8 +1078,8 @@ let numbers = wrapInArray('1'); //allowed
 
 ```ts
 interface Result<T> {
-data: T | null,
-error: string | null
+    data: T | null,
+    error: string | null
 }
 
 function fetch<T>(url:string):Result<T>{
@@ -1107,7 +1107,7 @@ Because Function Returning Generic Result We Have To Add Type.
 
 ```ts
 function echo<T>(value:T):T{
-return value;  
+    return value;  
 }
 
 echo('1');// we can give anything but if we want to any constraints then.
@@ -1115,7 +1115,7 @@ echo('1');// we can give anything but if we want to any constraints then.
 
 ```ts
 function echo<T extends number | string >(value:T):T{
-return value;  
+    return value;  
 }
 
 echo('1'); // we can pass number and string only now
@@ -1138,7 +1138,7 @@ interface Person {
     name: string;
 }
 function echo<T extends Person>(value:T):T{
-return value;  
+    return value;  
 }
 echo({ name: 'a' });
 
